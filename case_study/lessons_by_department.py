@@ -5,10 +5,14 @@ from typing import List, Dict
 from dotenv import load_dotenv
 from google.cloud import bigquery
 import pathlib
+import sys
+
+sys.path.append(str(pathlib.Path(__file__).parent.parent))
 
 from case_study.utils import read_departments_boundaries, construct_department_boundaries_query, valid_date_range
 
 load_dotenv()
+
 # global variables
 BOUNDARIES_FILE_PATH = pathlib.Path(__file__).parent.parent / "data/france_department_boundaries.csv"
 
@@ -37,7 +41,7 @@ def get_nb_lessons_by_department(
     client = bigquery.Client()
 
     # get the department boundaries data
-    departments_boundaries = read_departments_boundaries(BOUNDARIES_FILE_PATH)
+    departments_boundaries = read_departments_boundaries(str(BOUNDARIES_FILE_PATH))
     departments_boundaries_load_query = construct_department_boundaries_query(departments_boundaries)
 
     # query all the meeting points meeting the criteria
@@ -119,4 +123,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

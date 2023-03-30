@@ -49,6 +49,6 @@ Pour le système de monitoring du modèle, on pourrait utiliser les fonctionnali
 de configurer le suivi des métriques du modèle, le logging des prédictions, les alertes afin de permettre une analyse en
 temps réel du modèle et l'améliorer ou le changer au besoin.
 
-![Architecture_Cloud_Function](./images/archi_requests.png)
+![Architecture_Cloud_Function](./images/archi_model.png)
 
 
